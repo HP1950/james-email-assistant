@@ -1,0 +1,174 @@
+{
+  "timestamp": "2025-07-02T15:12:08.416002",
+  "test_type": "mock_simulation",
+  "note": "This is a simulation - real capabilities may vary",
+  "scopes_required": [
+    "https://www.googleapis.com/auth/gmail.readonly",
+    "https://www.googleapis.com/auth/gmail.modify",
+    "https://www.googleapis.com/auth/gmail.compose",
+    "https://www.googleapis.com/auth/gmail.send",
+    "https://www.googleapis.com/auth/gmail.labels",
+    "https://www.googleapis.com/auth/gmail.metadata"
+  ],
+  "capabilities": {
+    "profile": {
+      "email_address": "user@example.com",
+      "messages_total": 15847,
+      "threads_total": 8923,
+      "history_id": "1234567890"
+    },
+    "labels": {
+      "total_count": 9,
+      "system_labels": [
+        "INBOX",
+        "SPAM",
+        "TRASH",
+        "UNREAD",
+        "SENT",
+        "DRAFT"
+      ],
+      "user_labels": [
+        "Work",
+        "Personal",
+        "Newsletters"
+      ]
+    },
+    "message_listing": {
+      "can_list": true,
+      "sample_count": 10,
+      "has_pagination": true
+    },
+    "message_details": {
+      "can_get_full": true,
+      "has_headers": true,
+      "has_body": true,
+      "has_attachments": true
+    },
+    "label_management": {
+      "can_get_labels": true,
+      "can_batch_modify": true,
+      "can_add_labels": true,
+      "can_remove_labels": true,
+      "current_labels_sample": [
+        "INBOX",
+        "UNREAD"
+      ]
+    },
+    "search": {
+      "is:unread": 5,
+      "from:noreply": 12,
+      "subject:unsubscribe": 3,
+      "has:attachment": 8,
+      "in:spam": 2
+    },
+    "advanced_search": {
+      "supported_operators": [
+        "date_range",
+        "size_filter",
+        "attachment_type",
+        "boolean_logic",
+        "regex_support",
+        "custom_labels"
+      ],
+      "regex_support": false,
+      "can_save_searches": false,
+      "supports_complex_queries": true
+    },
+    "unread_count": {
+      "can_count_unread": true,
+      "current_unread": 5
+    },
+    "threads": {
+      "can_list_threads": true,
+      "can_get_thread_details": true,
+      "sample_thread_messages": 3
+    },
+    "drafts": {
+      "can_create_drafts": true,
+      "can_list_drafts": true,
+      "can_delete_drafts": true,
+      "can_update_drafts": true,
+      "can_send_drafts": true,
+      "total_drafts": 3
+    },
+    "send_email": {
+      "can_send_email": true,
+      "can_send_with_attachments": true,
+      "can_reply": true,
+      "can_forward": true,
+      "supports_html": true,
+      "supports_plain_text": true
+    },
+    "history_api": {
+      "can_access_history": true,
+      "current_history_id": "1234567890",
+      "can_track_changes": true,
+      "supports_push_notifications": true
+    },
+    "batch_operations": {
+      "can_batch_modify_labels": true,
+      "can_batch_delete": true,
+      "can_batch_mark_read": true,
+      "max_batch_size": 1000,
+      "supports_atomic_operations": true
+    },
+    "automation_analysis": {
+      "email_organization": {
+        "can_auto_label": true,
+        "can_auto_archive": true,
+        "can_auto_delete": true,
+        "can_mark_read_unread": true,
+        "can_move_to_folders": true
+      },
+      "spam_management": {
+        "can_identify_spam": true,
+        "can_delete_spam": true,
+        "can_report_spam": true,
+        "can_whitelist": true
+      },
+      "unsubscribe_detection": {
+        "can_search_unsubscribe": true,
+        "can_extract_unsubscribe_links": true,
+        "automatic_unsubscribe": false,
+        "can_flag_for_review": true
+      },
+      "response_automation": {
+        "can_create_drafts": true,
+        "can_template_responses": true,
+        "can_auto_reply": false,
+        "can_schedule_send": false,
+        "requires_approval_workflow": true
+      },
+      "scheduling": {
+        "api_rate_limits": "250 quota units per user per second",
+        "daily_limits": "1 billion quota units per day",
+        "batch_size_limits": "1000 operations per batch",
+        "recommended_frequency": "3x daily (every 8 hours)"
+      }
+    }
+  },
+  "limitations": [
+    "No native unsubscribe API - requires parsing email content and making HTTP requests",
+    "No built-in scheduling - requires external cron/scheduler for 3x daily runs",
+    "Rate limits: 250 quota units/second, need to implement backoff strategies",
+    "OAuth token refresh required - implement automatic token refresh",
+    "No regex support in search - need to use Gmail's query operators",
+    "Cannot permanently delete emails without additional 'gmail.settings.basic' scope",
+    "Push notifications require webhook setup and domain verification",
+    "Batch operations limited to 1000 items per request",
+    "No built-in AI/ML for spam detection - need custom heuristics",
+    "Draft approval workflow requires external UI/notification system"
+  ],
+  "summary": {
+    "total_capabilities": 14,
+    "total_limitations": 10,
+    "automation_ready": true,
+    "requires_external_components": [
+      "Cron scheduler for 3x daily execution",
+      "Web scraping for unsubscribe links",
+      "Approval UI for AI-generated responses",
+      "Token refresh mechanism",
+      "Rate limiting and retry logic"
+    ]
+  }
+}
