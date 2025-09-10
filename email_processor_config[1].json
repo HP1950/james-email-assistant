@@ -1,0 +1,98 @@
+{
+  "database_url": "postgresql://role_13f863f614:uMSlmglksxluebz3G6u8nrS7B7hlpMQS@db-13f863f614.db001.hosteddb.reai.io:5432/13f863f614",
+  "gmail_credentials_path": "/home/ubuntu/credentials.json",
+  "gmail_token_path": "/home/ubuntu/token.json",
+  "processing_limits": {
+    "max_emails_per_run": 100,
+    "max_drafts_per_run": 20,
+    "max_processing_time_minutes": 30,
+    "rate_limit_delay": 0.1
+  },
+  "spam_detection": {
+    "enabled": true,
+    "sensitivity": "medium",
+    "keywords": [
+      "lottery", "winner", "congratulations", "claim now", "urgent",
+      "limited time", "act now", "free money", "guaranteed",
+      "no obligation", "risk free", "100% free", "click here now",
+      "make money fast", "work from home", "get rich quick",
+      "amazing deal", "once in a lifetime", "exclusive offer",
+      "you have been selected", "claim your prize", "act immediately"
+    ],
+    "suspicious_domains": [
+      "tempmail.org", "10minutemail.com", "guerrillamail.com",
+      "mailinator.com", "throwaway.email", "temp-mail.org"
+    ],
+    "suspicious_patterns": [
+      "RE: RE: RE:",
+      "FW: FW: FW:",
+      "URGENT!!!",
+      "ACT NOW!!!",
+      "LIMITED TIME!!!"
+    ]
+  },
+  "unsubscribe_detection": {
+    "enabled": true,
+    "keywords": ["unsubscribe", "opt out", "remove me", "stop emails", "manage preferences"],
+    "auto_unsubscribe": false,
+    "flag_for_review": true,
+    "safe_domains": [
+      "amazon.com", "google.com", "microsoft.com", "apple.com",
+      "linkedin.com", "facebook.com", "twitter.com", "github.com"
+    ]
+  },
+  "categorization": {
+    "business_keywords": [
+      "meeting", "project", "deadline", "invoice", "contract",
+      "proposal", "budget", "report", "presentation", "conference",
+      "client", "customer", "vendor", "supplier", "partnership"
+    ],
+    "personal_keywords": [
+      "family", "friend", "birthday", "vacation", "personal",
+      "wedding", "party", "dinner", "lunch", "weekend",
+      "holiday", "anniversary", "graduation", "celebration"
+    ],
+    "promotional_keywords": [
+      "sale", "discount", "offer", "deal", "promotion",
+      "coupon", "savings", "special", "limited", "exclusive",
+      "free shipping", "buy now", "shop now", "clearance"
+    ],
+    "social_keywords": [
+      "facebook", "twitter", "linkedin", "instagram", "notification",
+      "like", "comment", "share", "follow", "friend request",
+      "message", "post", "update", "activity", "mention"
+    ]
+  },
+  "ai_response": {
+    "enabled": true,
+    "confidence_threshold": 0.7,
+    "max_response_length": 500,
+    "require_approval": true,
+    "response_templates": {
+      "meeting_response": "Thank you for your email regarding the meeting. I'll review my calendar and get back to you with my availability shortly.",
+      "question_response": "Thank you for your question. I'll need to review this and provide you with a detailed response. I'll get back to you within 24 hours.",
+      "request_response": "I've received your request and will review it carefully. I'll respond with more details soon.",
+      "acknowledgment": "You're very welcome! I'm glad I could help.",
+      "general_response": "Thank you for your email. I've received it and will respond appropriately soon."
+    }
+  },
+  "gmail_labels": {
+    "create_custom_labels": true,
+    "label_mapping": {
+      "business": "Work/Business",
+      "personal": "Personal",
+      "promotional": "Promotions",
+      "social": "Social",
+      "spam_detected": "Spam/Detected",
+      "unsubscribe_candidate": "Action/Unsubscribe",
+      "ai_response_needed": "Action/Response Needed"
+    }
+  },
+  "notification_settings": {
+    "send_summary": true,
+    "summary_email": null,
+    "slack_webhook": null,
+    "discord_webhook": null,
+    "log_level": "INFO"
+  }
+}
